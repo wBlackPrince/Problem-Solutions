@@ -14,23 +14,16 @@ def Pow(a,b,c):
             pow *= int(i)
     return pow
 
-def Checker(a,b,c):
-    pow = Pow(a,b,c)
-
-    if pow <= 2*10**9 and check_mask(pow):
-        return (True,pow)
-    else:
-        return (False,0)
-
 count = 0
 mas = []
 
 for i in range(len(data)-2):
-    result,pow = Checker(data[i],data[i+1],data[i+2])
+    pow = Pow(data[i],data[i+1],data[i+2])
+    result = pow <= 2*10**9 and check_mask(pow)
+
     if result:
         count += 1
         mas.append(pow)
 
 print(count, max(mas))
 # 37 113246208
-
